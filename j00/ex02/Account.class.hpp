@@ -45,6 +45,7 @@ private:
 	int				_amount;
 	int				_nbDeposits;
 	int				_nbWithdrawals;
+	mutable int    _bite;
 
 	Account( void );
 
