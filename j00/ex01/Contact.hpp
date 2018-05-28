@@ -9,7 +9,7 @@ public:
 	Contact();
 	~Contact();
 
-	std::string getField(uint8_t fieldID, bool truncated);
+	std::string getField(uint8_t fieldID, bool truncated) const;
 	void		addNew(void);
 	bool		isInitialized();
 
