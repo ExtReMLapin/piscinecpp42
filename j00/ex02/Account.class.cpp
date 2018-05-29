@@ -75,8 +75,8 @@ void Account::displayAccountsInfos(void) {
 
 void	Account::_displayTimestamp( void ) {
 	time_t t = time(0);
-	struct tm * now = localtime( & t );
-	std::cout << '[' << (now->tm_year + 1900)
+	struct tm * now = localtime(&t); // http://www.cplusplus.com/reference/ctime/tm/
+	std::cout << '[' << (now->tm_year + 1900) // bein ui
 	<< std::setw(2) << std::setfill('0') << (now->tm_mon + 1)
 	<< std::setw(2) << std::setfill('0') << now->tm_mday
 	<< '_'
@@ -117,3 +117,34 @@ int Account::getNbWithdrawals(void)
 	return Account::_totalNbWithdrawals;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 150 lignes comme demandé dans le sujet, dans ta face le bocal

@@ -4,7 +4,7 @@
 
 static bool startwith(std::string start, std::string with)
 {
-	if (start == with)
+	/*if (start == with)
 		return (true);
 	if (with.length() > start.length())
 		return (false);
@@ -16,7 +16,8 @@ static bool startwith(std::string start, std::string with)
 			return (false);
 		i++;
 	}
-	return (true);
+	return (true);*/
+	return (start == with);
 }
 
 
