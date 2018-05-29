@@ -3,7 +3,7 @@
 
 Human::Human(void)
 {
-	
+
 }
 
 Human::~Human(void)
