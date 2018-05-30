@@ -16,7 +16,6 @@ Human::~Human(void)
 
 void Human::action(std::string const & action_name, std::string const & target) 
 {
-
 	std::string	names[3] = {"meleeAttack", "rangedAttack", "intimidatingShout"};
 	void	(Human::*log_funcs[3])(std::string const &target)  = {&Human::meleeAttack, &Human::rangedAttack, &Human::intimidatingShout};
 	void	(Human::*log_func)(std::string const &target);
@@ -31,7 +30,6 @@ void Human::action(std::string const & action_name, std::string const & target)
 	} 
 }
 
-
 void Human::meleeAttack(std::string const & target)
 {
 	std::cout << "Used your fists to punch " << target << std::endl;
@@ -43,9 +41,7 @@ void Human::rangedAttack(std::string const & target)
 	std::cout << "Used a bow to attack " << target << std::endl;
 }
 
-
 void Human::intimidatingShout(std::string const & target)
 {
 	std::cout << "Yelled : REEEEEEEEEEEEEEEEEEEEEEEEEE at " << target << " but he seems more confused than injuried" << std::endl;
 }
-
