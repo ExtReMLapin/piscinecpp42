@@ -30,7 +30,7 @@ Fixed::Fixed(int const n)
 Fixed::Fixed(float const n)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_raw = roundf(n * (1 << this->_bit));
+	this->_raw = roundf(n * (1 << this->_bit)); // on peut pas juste décaler vue c'est une float, bon on perd de la précision là par contre
 	return;
 }
 
