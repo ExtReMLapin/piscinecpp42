@@ -25,28 +25,46 @@ void	replace(char **argv)
 	std::streampos	size;
 
 
-	if (strdest.find(strsource) != std::string::npos)
+	file.open(argv[1]);
+	if (!file.is_open()) // bein ui
 	{
-		std::cout << "strRemplaceBy contains strFindStrToReplace, in other words, don't try to replace a string by another string containing itself" << std::endl;
+		std::cout << "Error: Unable to open the input file" << std::endl;
+		return;
 	}
 
-
-	file.open(argv[1]);
 	file2.open(newfile.c_str());
-
-	if (!file.is_open() || !file2.is_open() ) // bein ui
+	if (!file2.is_open()) // bein ui
 	{
-		std::cout << "Error: Unable to open one of the files." << std::endl;
+		std::cout << "Error: Unable to open the output file" << std::endl;
 		return;
 	}
 
 	file.seekg(0, std::ios::end); 
 	size = file.tellg(); // comme ici : http://www.cplusplus.com/reference/istream/istream/tellg/
-	std::string	buffer(size, ' ');
+
+	/*
+		En gros on place un "curseur" à la fin du fichier,
+		on vérifie sa position pour chopper la taille et on le replace au début
+	*/
+	std::string	buffer(size, ' '); // pis on refait un buffer de la même taille
 	file.seekg(0, std::ios::beg);
-	file.read(&buffer[0], size);
-	while (buffer.find(strsource) != (size_t)-1) // loop et remplace tant que on en trouve
-		buffer.replace(buffer.find(strsource), strsource.length(), strdest);
+
+
+	file.read(&buffer[0], size); // comme un read() et on balance tout dans le buffer
+
+	size_t pos = 0;
+	while (true)
+	{
+		pos = buffer.find(strsource, pos);
+
+		if (pos == std::string::npos)
+			break; // didn't find shit
+		buffer.replace(pos, strsource.length(), strdest);
+		pos += strdest.length(); // support for string to be replaced inside the string to replace with
+
+	}
+
+
 	file2 << buffer;
 	file.close();
 
