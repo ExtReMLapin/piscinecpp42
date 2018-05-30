@@ -9,7 +9,7 @@ static std::string 	file_cap(std::string in)
 
 	while (i < in.size())
 	{
-		out += toupper(in[i]);
+		out += std::toupper(in[i]);
 		i++;
 	}
 	return out;

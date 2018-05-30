@@ -1,7 +1,7 @@
 #include "Human.hpp"
 
 
-int		main()
+int		main(void)
 {
 	Human	_;
 
