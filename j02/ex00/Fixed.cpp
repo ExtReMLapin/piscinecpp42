@@ -8,7 +8,7 @@ Fixed::Fixed() : _raw(0)
 
 Fixed::~Fixed()
 {
-
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const &source)
