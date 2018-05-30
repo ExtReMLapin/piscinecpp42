@@ -12,7 +12,7 @@ Logger::Logger(std::string const &file) : _filename(file)
 
 Logger::~Logger()
 {
-
+ 
 }
 
 void Logger::logToConsole(std::string const &message) const
@@ -24,7 +24,7 @@ void Logger::logToFile(std::string const &message) const
 {
 	std::ofstream	file;
 	if (!file.is_open())
-		file.open(this->_filename.c_str());
+		file.open(this->_filename.c_str(), std::ofstream::out | std::ofstream::app);
 	if (!file.is_open()) // bein ui
 	{
 		std::cout << "Error: Unable to open the log file, redirecting to the console : ";
@@ -32,6 +32,7 @@ void Logger::logToFile(std::string const &message) const
 		return;
 	}
 	file << this->makeLogEntry(message) << std::endl;
+	file.close();
 
 }
 
@@ -43,27 +44,24 @@ std::string Logger::makeLogEntry(std::string const &message) const
 
 	buf[18] = '\0';
 	std::tm *ltm = localtime(&now);
-	std::strftime(buf,18,"[%Y%m%d-%H%M%S] ",ltm);
+	std::strftime(buf,18,"[%Y%m%d-%H%M%S] :",ltm);
 	res = buf;
-	res = "[" + res + message + "]";
+	res += message;
 	return (res);
 }
 
-typedef void(Logger::*humanMethodCall)(std::string const &); // le std::string const c'est pas le nom mais le target
-
-void	Logger::log(std::string const & dest, std::string const & message) {
-
-	std::map<std::string, humanMethodCall> myMap;
-	myMap["logToFile"] = &Logger::logToFile;
-	myMap["makeLogEntry"] = &Logger::makeLogEntry;
-	myMap["logToConsole"] = &Logger::logToConsole;
-
-	if ((myMap.count(dest)) == 0)
+void	Logger::log(std::string const & dest, std::string const & msg)
+{
+	std::string	names[2] = {"logToConsole", "logToFile"};
+	void	(Logger::*log_funcs[2])(std::string const &msg) const = {&Logger::logToConsole, &Logger::logToFile};
+	void	(Logger::*log_func)(std::string const &msg) const;
+	int		ind = 0;
+	
+	while (ind < 2 && names[ind] != dest)
+		ind++;
+	if (ind != 2)
 	{
-		std::cout << "attempt to call method : " << dest << " which is invalid" << std::endl;
-		return;
-	}
-
-	humanMethodCall call = myMap[dest];
-	(this->*call)(message);
+		log_func = log_funcs[ind];
+		(this->*log_func)(msg);
+	} 
 }
