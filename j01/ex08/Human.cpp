@@ -14,27 +14,21 @@ Human::~Human(void)
 
 }
 
-typedef void(Human::*humanMethodCall)(std::string const &); // le std::string const c'est pas le nom mais le target
-
 void Human::action(std::string const & action_name, std::string const & target) 
 {
-	// http://www.cplusplus.com/reference/map/map/
-	// https://stackoverflow.com/questions/19473313/how-to-call-a-function-by-its-name-stdstring-in-c
 
-
-	std::map<std::string, humanMethodCall> myMap;
-	myMap["meleeAttack"] = &Human::meleeAttack;
-    myMap["rangedAttack"] = &Human::rangedAttack;
-	myMap["intimidatingShout"] = &Human::intimidatingShout;
-
-	if ((myMap.count(action_name)) == 0)
+	std::string	names[3] = {"meleeAttack", "rangedAttack", "intimidatingShout"};
+	void	(Human::*log_funcs[3])(std::string const &target)  = {&Human::meleeAttack, &Human::rangedAttack, &Human::intimidatingShout};
+	void	(Human::*log_func)(std::string const &target);
+	int		ind = 0;
+	
+	while (ind < 3 && names[ind] != action_name)
+		ind++;
+	if (ind != 3) // pas trouvé
 	{
-		std::cout << "attempt to call method : " << action_name << " which is invalid" << std::endl;
-		return;
-	}
-
-	humanMethodCall call = myMap[action_name];
-	(this->*call)(target);
+		log_func = log_funcs[ind];
+		(this->*log_func)(target);
+	} 
 }
 
 
