@@ -39,7 +39,7 @@ FragTrap & FragTrap::operator=(const FragTrap & rhs)
 
 void FragTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "[SNEAKY BEEP] - " << this->name << " is a coward and decides to attack " << target << " using some long range weapon and deals " << this->ranged_attack_dmg << " damages" <<std::endl;
+	std::cout << "[SNEAKY BEEP] - " << this->name << " is a coward and decides to attack " << target << " using some long range weapon and deals " << this->ranged_attack_dmg << " damages" << std::endl;
 }
 
 void FragTrap::meleeAttack(std::string const & target)
@@ -106,6 +106,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 	{
 		this->energy_points -= 25;
 		std::cout<< "[SICK MADMAN BEEP] - "  << this->name << " uses the special attack : [" << attacks[(rand() % 6)] << "] against " << target << " | It's super effective !" << std::endl;
+
 	}
 
 }

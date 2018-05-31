@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
@@ -15,8 +16,15 @@ int main(void)
 	tomato42.takeDamage(42);
 	
 
-	/*FragTrap yala = FragTrap(tomato42);
-	yala.takeDamage(42);*/
+	ScavTrap superPotato = ScavTrap("Sgt Garcia");
+	superPotato.rangedAttack("Cpt. Kebab");
+	superPotato.meleeAttack("some bird");
+	superPotato.challengeNewcomer();
+	superPotato.takeDamage(1);
+	superPotato.takeDamage(42);
+	superPotato.takeDamage(42);
+	superPotato.beRepaired(44);
+	superPotato.takeDamage(42);
 
 
 	return 0;
