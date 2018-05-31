@@ -64,10 +64,9 @@ void	replace(char **argv)
 
 	}
 
-
 	file2 << buffer;
 	file.close();
-
+	file2.close();
 }
 
 int		main(int argc, char **argv)
