@@ -14,7 +14,7 @@ public:
 	void meleeAttack(std::string const & target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	std::string name;
+	
 
 protected:
 	unsigned int hit_points;
@@ -22,7 +22,7 @@ protected:
 	unsigned int energy_points;
 	unsigned int max_energy_points;
 	unsigned int level;
-
+	std::string name;
 	unsigned int melee_attack_dmg;
 	unsigned int ranged_attack_dmg;
 	unsigned int armor_damage_reduction;

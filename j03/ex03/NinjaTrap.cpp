@@ -56,23 +56,26 @@ void NinjaTrap::meleeAttack(std::string const & target)
 	std::cout << this->name << " tried to break " << target << "'s neck and deals him " << this->melee_attack_dmg << " damages" <<std::endl;
 }
 
-void	NinjaTrap::ninjaShoebox(FragTrap const & target)
+void	NinjaTrap::ninjaShoebox(FragTrap  & target)
 {
-	std::cout << this->name << " throws a baby at " << target.name << std::endl;
+	std::cout << this->name << " throws a baby at a FragTrap" << std::endl;
+	target.takeDamage(this->ranged_attack_dmg);
 }
 
-void	NinjaTrap::ninjaShoebox(ScavTrap const & target)
+void	NinjaTrap::ninjaShoebox(ScavTrap  & target)
 {
-	std::cout << this->name << " throw some expired food at " << target.name << std::endl;
+	std::cout << this->name << " throw some expired food at ScavTrap" << std::endl;
+	target.takeDamage(this->ranged_attack_dmg);
 }
 
-void	NinjaTrap::ninjaShoebox(NinjaTrap const & target)
+void	NinjaTrap::ninjaShoebox(NinjaTrap  & target)
 {
-
-	std::cout << this->name << " sees himself in a mirrors and doesn't do shit to " << target.name << std::endl;
+	std::cout << this->name << " throw some old worn socks at NinjaTrap" << std::endl;
+	target.takeDamage(this->ranged_attack_dmg);
 }
 
-void	NinjaTrap::ninjaShoebox(ClapTrap const & target)
+void	NinjaTrap::ninjaShoebox(ClapTrap  & target)
 {
-	std::cout << this->name << " ignores " << target.name << std::endl;
+	std::cout << this->name << " throw a rotten tomato at ClapTrap" << std::endl;
+	target.takeDamage(this->ranged_attack_dmg);
 }
