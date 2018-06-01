@@ -2,11 +2,12 @@
 
 #include "Enemy.hpp"
 
-class SuperMutant
+class SuperMutant : public Enemy
 {
 public:
 	SuperMutant();
 	~SuperMutant();
 	SuperMutant(SuperMutant const & src);
-	SuperMutant &	operator=(SuperMutant const & rhs);	
+	SuperMutant &	operator=(SuperMutant const & rhs);
+	virtual void takeDamage(int damage);
 };
