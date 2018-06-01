@@ -20,6 +20,9 @@ int main(void)
 	superPotato.rangedAttack("Cpt. Kebab");
 	superPotato.meleeAttack("some bird");
 	superPotato.challengeNewcomer();
+	superPotato.challengeNewcomer();
+	superPotato.challengeNewcomer();
+	superPotato.challengeNewcomer();
 	superPotato.takeDamage(1);
 	superPotato.takeDamage(42);
 	superPotato.takeDamage(42);

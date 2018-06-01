@@ -50,12 +50,10 @@ SuperTrap &  SuperTrap::operator=(SuperTrap const & rhs)
 
 void	SuperTrap::rangedAttack(std::string & target)
 {
-
 	FragTrap::rangedAttack(target);
 }
 
 void	SuperTrap::meleeAttack(std::string & target)
 {
-
 	NinjaTrap::meleeAttack(target);
 }
