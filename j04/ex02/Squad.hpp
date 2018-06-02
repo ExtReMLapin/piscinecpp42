@@ -3,27 +3,26 @@
 
 #include "ISquad.hpp"
 
+
+
 class Squad : public ISquad
 {
-typedef struct s_list
-{
-	ISpaceMarine	*instance;
-	s_list			*next;
-}				t_list;
+	struct t_list
+	{
+		ISpaceMarine	*data;
+		t_list			*next;
+	};
+	public:
+		~Squad( void );
+		int		getCount() const;
+		ISpaceMarine*	getUnit( int index ) const;
+		int		push( ISpaceMarine* sm );
 
-public:
+		Squad( void );
+		Squad( Squad const & src );
+		Squad& operator=(Squad const & rhs);
+	private:
 
-	Squad( void );
-	Squad( Squad const & src );
-	~Squad( void );
-	Squad& operator=(Squad const & rhs);
-
-	int		getCount() const;
-	ISpaceMarine*	getUnit( int index ) const;
-	int		push( ISpaceMarine* sm );
-	
-
-private:
-	int		n;
-	t_list	*list;
+		int		n;
+		t_list	*list;
 };

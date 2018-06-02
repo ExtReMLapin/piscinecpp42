@@ -19,6 +19,16 @@ int main(void)
 	cur->rangedAttack();
 	cur->meleeAttack();
 	}
-	delete vlc;
+
+
+	
+
+	TacticalMarine* ism = new TacticalMarine();
+	ISpaceMarine* tcm = new TacticalMarine(*ism);
+	tcm = jim; // et bam on transforme un tactical marine en assault terminator, merci l'interface
+	tcm->battleCry();
+	tcm->rangedAttack();
+	tcm->meleeAttack();
+
 	return 0;
 }

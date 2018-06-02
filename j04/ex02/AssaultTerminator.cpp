@@ -10,7 +10,7 @@ AssaultTerminator::AssaultTerminator( void )
 AssaultTerminator::AssaultTerminator( AssaultTerminator const & src )
 {
 	std::cout << "* teleports from space *" << std::endl;
-	(void)src;
+	(void)src; // warning de merde
 }
 
 AssaultTerminator::~AssaultTerminator( void )
@@ -40,8 +40,8 @@ ISpaceMarine *	AssaultTerminator::clone( void ) const
 	return (copy);
 }
 
-AssaultTerminator& AssaultTerminator::operator=(AssaultTerminator const & rhs)
+AssaultTerminator& AssaultTerminator::operator=(AssaultTerminator const &rhs)
 {
-	(void)rhs;
+	(void)rhs; // w a r n i n g
 	return (*this);
 }
