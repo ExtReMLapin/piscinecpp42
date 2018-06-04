@@ -9,7 +9,6 @@
 
 int main(void)
 {
-	srand(time(NULL));
 	Bureaucrat Buro1("Procureur de la République", 1);
 	Bureaucrat Buro2("Taubira", 140); // bah ouais ma grosse tu fais mal ton taf
 
@@ -48,6 +47,9 @@ int main(void)
 
 	Buro1.executeForm(beepboop);
 
+	// test file creation 
+	Buro1.signForm(foret);
+	Buro1.executeForm(foret);
 	return(1);
 
 }
