@@ -1,8 +1,9 @@
-#include "Form.hpp"
 
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
-#include "Bureaucrat.hpp"
+
 
 Form::Form(unsigned int gradeSign, unsigned int gradeExec, std::string name) : _gradeSign(gradeSign), _gradeExec(gradeExec), _name(name),  _signed(false)
 {
@@ -114,3 +115,4 @@ std::ostream &operator<<(std::ostream &o, Form &rhs) {
 	o << "Form -> Name :" << rhs.getName() << ", is signed : " << rhs.getSigned() << ", Required grade to sign : " << rhs.getGradeSign() <<  ", Required grade to execute : " << rhs.getGradeExec() << std::endl;
 	return(o);
 }
+

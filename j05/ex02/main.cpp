@@ -1,30 +1,53 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <iostream>
+#include <cstdlib>
+
 
 int main(void)
 {
-	Bureaucrat taubira("Taubira", 10);
-	Bureaucrat DSK("Dominique-nique", 142);
-	Bureaucrat marine("Marine le stylo", 150);
+	srand(time(NULL));
+	Bureaucrat Buro1("Procureur de la République", 1);
+	Bureaucrat Buro2("Taubira", 140); // bah ouais ma grosse tu fais mal ton taf
+
+	PresidentialPardonForm president("Micron");
+	ShrubberyCreationForm foret("Foret d'elwynn");
+	RobotomyRequestForm beepboop("Roger le (pas encore) robot de l'espace nazi venu du futur");
 
 
-	Form form_high(10,10,"Elite form");
+	//ca passe easy
+	Buro1.signForm(president);
+	Buro1.executeForm(president);
 
-	marine.signForm(form_high);
-	
-	std::cout << form_high << taubira << std::endl;
-	taubira.signForm(form_high);
+	// error now
+	Buro2.signForm(beepboop);
+	std::cout <<"Taubira : pk sa march pa :(((" << std::endl;
+	std::cout <<"Le Procureur de la République : Putain Taubira t'es chiante, tu fais de la merde, laisse moi faire." << std::endl;
+	std::cout <<"Taubira : gngngng j'entends rien" << std::endl;
 
-	std::cout  << form_high;
+	Buro1.signForm(beepboop);
 
-	try{
-		Form dolfi( 5000000,0, "");
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "fail creation form" << e.what() << std::endl;
-	}
 
+	std::cout <<"Le Procureur de la République : voilaaa." <<std::endl;
+
+
+	Buro2.executeForm(beepboop);
+
+
+	std::cout <<"Taubira : arrr ca march toujour pa :((" << std::endl;
+
+
+	std::cout <<"Le Procureur de la République : TAUBIRA PUTAIN TU CASSE LES COUILLES TOUCHE PAS BORDEL" << std::endl;
+	std::cout <<"Le Procureur de la République : Bon." << std::endl;
+	std::cout <<"Le Procureur de la République : Vas-y, je le fais mais après tu retourne écrire tes bouquins de merde que personne lis." << std::endl;
+	std::cout <<"Taubira : ui ui ui" << std::endl;
+
+
+	Buro1.executeForm(beepboop);
+
+	return(1);
 
 }
