@@ -28,7 +28,7 @@ class Form
 				GradeTooHighException & operator=(const Form::GradeTooHighException & rhs);
 				
 		};
-
+		
 
 		class GradeTooLowException : public std::exception
 		{

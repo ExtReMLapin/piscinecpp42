@@ -13,12 +13,32 @@ Intern::~Intern(void)
 
 }
 
-template< typename T > void* T( std::string target) {
-    return new T( target );
+
+static Form *_ShrubberyCreationForm(std::string target)
+{
+	return (new ShrubberyCreationForm(target));
 }
+
+static Form *_RobotomyRequestForm(std::string target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+static Form *_PresidentialPardonForm(std::string target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+
+
+
+
 
 Form * Intern::makeForm(std::string form, std::string target)
 {
+
+
+
 	if (form == "shrubbery creation")
 	{
 		std::cout << "Intern creates " << form << std::endl;
@@ -36,6 +56,7 @@ Form * Intern::makeForm(std::string form, std::string target)
 	}
 	std::cout << "Requested form unknown." << std::endl;
 	return (NULL);
+
 }
 
 Intern::Intern(Intern const & src)
