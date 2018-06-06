@@ -56,6 +56,12 @@ bool selecttype()
 	bool hasNum = false;
 	if (leng(data) == 1 && islower(data[0]))
 	{	
+		signed int num = static_cast<int>(data[0]);
+		std::cout << "char: ";
+		std::cout << "'" << data << "'" << std::endl;
+		std::cout << "int: " << num << std::endl;
+		std::cout << "float: " << static_cast<float>(num) << std::endl;
+		std::cout << "double: " << static_cast<float>(num) << std::endl;
 		return true;
 	}
 

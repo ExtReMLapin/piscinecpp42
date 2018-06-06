@@ -8,7 +8,7 @@ struct bitmap
 	char 	_1[8];
 	int 	_2;
 	char 	_3[8];
-};
+} __attribute__((packed));
 
 
 struct 				Data
@@ -20,11 +20,11 @@ struct 				Data
 
 void shuffle(char *str)
 {
-	std::string  alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	std::string  alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	size_t i = 0;
 	while (i < 8)
 	{
-		while (!isalnum(str[i]))
+		while (!isalnum(str[i])) // pas top mais osef
 			str[i] = static_cast<char>(alpha[rand()%(alpha.length())]);
 		i++;
 	}
@@ -58,6 +58,8 @@ int 	main(void)
 {
 	void *		tmp;
 	Data * 		ptr;
+
+	std::cout << sizeof(bitmap) << std::endl;
 
 	std::srand(std::time(0));
 	tmp = serialize();

@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = main
 
-SRC = main.cpp
+SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
