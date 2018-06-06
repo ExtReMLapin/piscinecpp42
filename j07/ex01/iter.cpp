@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <unistd.h>
 
@@ -20,13 +21,18 @@ void print( T const & x ) { std::cout << x << std::endl; return; }
 
 
 template< typename T>
-void	iter(T const *array, int lenght, void (*func) (T const & x )) {
-
-	for (int i = 0; i < lenght; i++) {
+void	iter(T const *array, int lenght, void (*func) (T const & x ))
+{
+	int i = 0;
+	while (i < lenght)
+	{
 		func(array[i]);
+		i++;
 	}
 	return ;
 }
+
+
 
 int main(void)
 {
