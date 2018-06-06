@@ -3,7 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 
-struct __attribute__((__packed__)) bitmap
+struct bitmap
 {
 	char 	_1[8];
 	int 	_2;
