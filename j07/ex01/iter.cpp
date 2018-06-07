@@ -32,15 +32,21 @@ void	iter(T const *array, int lenght, void (*func) (T const & x ))
 	return ;
 }
 
+template< typename T>
+void fputchar(T c)
+{
+	write(1, &c, 1);
+}
 
 
 int main(void)
 {
 
-	char dada[] = "LIBEREW LE TIBAY";
+	char dada[] = "LIBEREW LE TIBAY\n";
 	int tab[] = { 0, 1, 2, 3, 4 }; // <--- J'ai jamais compris pourquoi on peut pas ecrire int[] tab. Ca aurait plus de sens vous trouvez pas ?
 	Awesome tab2[5];
-	iter( dada, 16, print);
+	iter( dada, 17, fputchar);
+	iter( dada, 17, print);
 	iter( tab, 5, print );
 	iter( tab2, 5, print );
 }
